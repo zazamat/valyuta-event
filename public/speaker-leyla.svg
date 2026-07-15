@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">Leyla Hasanova speaker avatar</title>
+  <desc id="desc">Circular illustrated avatar for a female speaker.</desc>
+  <rect width="240" height="240" fill="#e9f8ee"/>
+  <circle cx="120" cy="94" r="52" fill="#1f2a22"/>
+  <circle cx="120" cy="92" r="38" fill="#d9b99b"/>
+  <path d="M70 96c0-42 23-70 57-70 31 0 53 25 53 61 0 16-5 31-14 42-6-22-20-35-42-35-24 0-41 13-54 39-3-11-4-23 0-37Z" fill="#151817"/>
+  <path d="M52 218c10-45 37-70 68-70s58 25 68 70H52Z" fill="#34a51d"/>
+  <path d="M87 218c5-25 17-38 33-38s28 13 33 38H87Z" fill="#ffffff" opacity=".92"/>
+  <text x="120" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#151817">LH</text>
+</svg>

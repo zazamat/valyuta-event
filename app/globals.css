@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.brand-mark {
+  display: inline-grid;
+  height: 32px;
+  width: 32px;
+  place-items: center;
+  border-radius: 8px;
+  background: #34a51d;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  transform: skewX(-7deg);
+}
+
+.scan-button {
+  position: relative;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+}
+
+.scan-button:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.scan-button.scan-pulse {
+  animation: scan-button-pulse 900ms ease;
+}
+
+.qr-shell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 14px;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.qr-shell.scan-pulse {
+  border-color: rgba(52, 165, 29, 0.7);
+  box-shadow: 0 0 0 4px rgba(52, 165, 29, 0.16);
+  transform: scale(1.015);
+}
+
+.qr-svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.scan-line {
+  animation: scan-line 900ms ease;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(52, 165, 29, 0.35),
+    transparent
+  );
+  inset: -30% 10px auto;
+  height: 34%;
+  position: absolute;
+  z-index: 1;
+}
+
+@keyframes scan-button-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 165, 29, 0.42);
+    transform: scale(1);
+  }
+  45% {
+    box-shadow: 0 0 0 8px rgba(52, 165, 29, 0.12);
+    transform: scale(0.97);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 165, 29, 0);
+    transform: scale(1);
+  }
+}
+
+@keyframes scan-line {
+  from {
+    transform: translateY(-20%);
+  }
+  to {
+    transform: translateY(390%);
+  }
+}
