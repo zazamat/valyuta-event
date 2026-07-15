@@ -4,7 +4,48 @@ import { CountdownTimer } from "../../components/countdown-timer";
 import { Header } from "../../components/header";
 import { events, tickets } from "../../data/demo";
 
-const event = events[0];
+type EventDetail = (typeof events)[number] & {
+  startsAt: string;
+  imageAlt: string;
+  description: string;
+  audience: string[];
+  takeaways: string[];
+  agenda: { time: string; title: string; description: string }[];
+  speakers: {
+    name: string;
+    role: string;
+    company: string;
+    bio: string;
+    topic: string;
+    linkedin: string;
+    photo: string;
+  }[];
+  sponsors: {
+    name: string;
+    tier: string;
+    website: string;
+    description: string;
+    logo: string;
+  }[];
+  media: {
+    photos: { title: string; url: string }[];
+    videos: { title: string; provider: string; url: string; embedUrl: string }[];
+    pressLinks: { title: string; url: string }[];
+  };
+  faq: { question: string; answer: string }[];
+  organizer: { name: string; description: string; email: string; phone: string };
+  venueDetails: {
+    address: string;
+    room: string;
+    mapUrl: string;
+    onlineAccess: string;
+  };
+  registrationQuestions: string[];
+  policies: string[];
+};
+
+const event = events[0] as EventDetail;
+const eventStartsAt = event.startsAt ?? "2026-09-18T10:00:00+04:00";
 
 export default function EventDetailPage() {
   const remainingTickets = Math.max(event.capacity - event.sold, 0);
@@ -52,7 +93,7 @@ export default function EventDetailPage() {
           </div>
           <div className="mt-5 max-w-2xl">
             <p className="mb-3 text-sm font-medium text-white/65">Tədbirə geri sayım</p>
-            <CountdownTimer target={event.startsAt} />
+            <CountdownTimer target={eventStartsAt} />
           </div>
           <Link
             className="mt-8 inline-flex rounded-lg bg-[#34a51d] px-5 py-3 text-sm font-semibold text-white"
