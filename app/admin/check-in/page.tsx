@@ -25,7 +25,7 @@ type CheckInTicket = {
 };
 
 type ScanResult =
-  | { type: "idle"; title: string; message: string }
+  | { type: "idle"; title: string; message: string; ticket?: undefined }
   | {
       type: "success" | "duplicate" | "pending" | "cancelled" | "invalid" | "online";
       title: string;
