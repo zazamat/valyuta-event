@@ -79,8 +79,19 @@ export function PromoCodesManager({ initialPromos }: { initialPromos: Promo[] })
   const rows = useMemo(
     () =>
       promos.map((promo) => ({
-        ...promo,
+        appliesTo: promo.appliesTo,
+        code: promo.code,
+        discountType: promo.discountType,
+        discountValue: promo.discountValue,
+        event: promo.event,
+        interestGroups: promo.interestGroups,
+        minOrder: promo.minOrder,
         period: `${promo.startsAt} - ${promo.endsAt}`,
+        revenueImpact: promo.revenueImpact,
+        ruleSummary: promo.ruleSummary,
+        segments: promo.segments,
+        status: promo.status,
+        title: promo.title,
         usage: `${promo.used}/${promo.limit}`,
       })),
     [promos],
