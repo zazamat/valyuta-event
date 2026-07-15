@@ -248,8 +248,10 @@ export function SalesStatisticsManager({
   };
 
   const toggleTypeStatus = (module: "expenses" | "income", id: string) => {
-    const toggle = (type: FinanceType) =>
-      type.id === id ? { ...type, status: type.status === "Aktiv" ? "Passiv" : "Aktiv" } : type;
+    const toggle = (type: FinanceType): FinanceType => {
+      const status: TypeStatus = type.status === "Aktiv" ? "Passiv" : "Aktiv";
+      return type.id === id ? { ...type, status } : type;
+    };
     if (module === "expenses") setExpenseTypes((current) => current.map(toggle));
     if (module === "income") setIncomeTypes((current) => current.map(toggle));
     showNotice("Növ statusu yeniləndi.");
