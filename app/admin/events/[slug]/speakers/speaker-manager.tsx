@@ -89,8 +89,9 @@ export function SpeakerManager({ initialSpeakers }: { initialSpeakers: Speaker[]
     if (!file) return;
     const reader = new FileReader();
     reader.onload = () => {
-      if (typeof reader.result === "string") {
-        setForm((current) => ({ ...current, photo: reader.result }));
+      const photo = reader.result;
+      if (typeof photo === "string") {
+        setForm((current) => ({ ...current, photo }));
       }
     };
     reader.readAsDataURL(file);
