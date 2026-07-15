@@ -90,8 +90,9 @@ export function SponsorManager({ initialSponsors }: SponsorManagerProps) {
     if (!file) return;
     const reader = new FileReader();
     reader.onload = () => {
-      if (typeof reader.result === "string") {
-        setForm((current) => ({ ...current, logo: reader.result }));
+      const logo = reader.result;
+      if (typeof logo === "string") {
+        setForm((current) => ({ ...current, logo }));
       }
     };
     reader.readAsDataURL(file);
