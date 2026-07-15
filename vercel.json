@@ -1,0 +1,12 @@
+{
+  "framework": null,
+  "installCommand": "npm install",
+  "buildCommand": "npm run build:vercel",
+  "outputDirectory": "vercel-static",
+  "rewrites": [
+    {
+      "source": "/((?!assets/|event-hero.png|valyuta-logo.png|speaker-leyla.svg|speaker-murad.svg|favicon.svg|file.svg|globe.svg|window.svg).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
